@@ -15,13 +15,13 @@ final SelectionControls exMaterialTextSelectionControls =
     _MaterialTextSelectionControls();
 
 const double _kHandleSize = 22.0;
-const double _kButtonPadding = 20.0;
+const double _kButtonPadding = 10.0;
 
 // Minimal padding from all edges of the selection popup menu to all edges of
 // the viewport.
 const double _kPopupMenuScreenPadding = 8.0;
 const double _kPopupMenuHeight = 44.0;
-const double _kPopupMenuContentDistance = 8.0;
+const double _kPopupMenuContentDistance = 20.0;
 
 /// Manages a copy/paste text selection popup menu.
 class _TextSelectionPopupMenu extends StatelessWidget {
