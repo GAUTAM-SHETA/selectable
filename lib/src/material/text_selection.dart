@@ -61,7 +61,7 @@ class _TextSelectionPopupMenu extends StatelessWidget {
         data: ThemeData(buttonTheme: ButtonThemeData(minWidth: 0)),
         child: Container(
           height: _kPopupMenuHeight,
-          padding: EdgeInsets.symmetric(horizontal: _kButtonPadding),
+          //padding: EdgeInsets.symmetric(horizontal: _kButtonPadding),
           child: Row(mainAxisSize: MainAxisSize.min, children: items),
         ),
       ),
