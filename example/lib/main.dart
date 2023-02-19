@@ -135,6 +135,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 scrollController: _scrollController,
                 // selectionColor: Colors.orange.withAlpha(75),
                 // showSelection: _showSelection,
+                iosPopupMenuBackgroundColor: Colors.white,
+                iosPopupMenuDividerColor: Colors.red,
+                iosTextColor: Colors.black,
                 popupMenuItems: [
                   SelectableMenuItem(type: SelectableMenuItemType.copy),
                   SelectableMenuItem(

@@ -6,6 +6,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 
+import '../common.dart';
 import '../selectable.dart';
 import '../selection_controls.dart';
 
@@ -404,12 +405,12 @@ class _CupertinoTextSelectionControls extends SelectionControls {
 
       Widget textWidget() => Text(
             icon == null ? text : ' $text',
-            style: _kPopupMenuButtonFontStyle,
+            style: _kPopupMenuButtonFontStyle.copyWith(color: iosTextColor),
             textScaleFactor: 1.0,
           );
 
       items.add(CupertinoButton(
-        color: _kPopupMenuBackgroundColor,
+        color: iosPopupMenuBackgroundColor ?? _kPopupMenuBackgroundColor,
         minSize: _kPopupMenuHeight,
         padding: _kPopupMenuButtonPadding.add(arrowPadding),
         borderRadius: null,
@@ -443,7 +444,8 @@ class _CupertinoTextSelectionControls extends SelectionControls {
       child: items.isEmpty
           ? null
           : DecoratedBox(
-              decoration: const BoxDecoration(color: _kPopupMenuDividerColor),
+              decoration: BoxDecoration(
+                  color: iosPopupMenuDividerColor ?? _kPopupMenuDividerColor),
               child: Row(mainAxisSize: MainAxisSize.min, children: items),
             ),
     );

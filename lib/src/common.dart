@@ -305,3 +305,7 @@ extension SelectableExtOnList<T> on List<T> {
     return -1;
   }
 }
+
+Color? iosPopupMenuBackgroundColor;
+Color? iosPopupMenuDividerColor;
+Color? iosTextColor;

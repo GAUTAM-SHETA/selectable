@@ -37,6 +37,9 @@ class Selectable extends StatefulWidget {
     this.popupMenuItems,
     this.selectionController,
     this.scrollController,
+    this.iosPopupMenuBackgroundColor,
+    this.iosPopupMenuDividerColor,
+    this.iosTextColor,
     this.topOverlayHeight = 0,
   });
 
@@ -51,6 +54,9 @@ class Selectable extends StatefulWidget {
   final SelectableController? selectionController;
   final ScrollController? scrollController;
   final double topOverlayHeight;
+  final Color? iosPopupMenuBackgroundColor;
+  final Color? iosPopupMenuDividerColor;
+  final Color? iosTextColor;
 
   @override
   // ignore: library_private_types_in_public_api
@@ -239,7 +245,9 @@ class _SelectableState extends State<Selectable>
   @override
   Widget build(BuildContext context) {
     _isBuilding = true;
-
+    iosPopupMenuBackgroundColor = widget.iosPopupMenuBackgroundColor;
+    iosPopupMenuDividerColor = widget.iosPopupMenuDividerColor;
+    iosTextColor = widget.iosTextColor;
     // Add post-frame-callback?
     if (_selectionController != null ||
         _hasChangedScrollController(widget.scrollController)) {

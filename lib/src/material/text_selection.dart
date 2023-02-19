@@ -55,13 +55,13 @@ class _TextSelectionPopupMenu extends StatelessWidget {
 
     return Material(
       elevation: 4.0,
-      color: Colors.red,
+      color: Theme.of(context).canvasColor,
       borderRadius: BorderRadius.circular(8),
       child: Theme(
         data: ThemeData(buttonTheme: ButtonThemeData(minWidth: 0)),
         child: Container(
           height: _kPopupMenuHeight,
-          //padding: EdgeInsets.symmetric(horizontal: _kButtonPadding),
+          padding: EdgeInsets.symmetric(horizontal: _kButtonPadding),
           child: Row(mainAxisSize: MainAxisSize.min, children: items),
         ),
       ),
