@@ -15,7 +15,7 @@ final SelectionControls exMaterialTextSelectionControls =
     _MaterialTextSelectionControls();
 
 const double _kHandleSize = 22.0;
-const double _kButtonPadding = 10.0;
+const double _kButtonPadding = 20.0;
 
 // Minimal padding from all edges of the selection popup menu to all edges of
 // the viewport.
