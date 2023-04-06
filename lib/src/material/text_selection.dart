@@ -1,6 +1,7 @@
 // Adapted from flutter/lib/src/material/text_selection.dart
 
 import 'dart:math' as math;
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
@@ -55,14 +56,34 @@ class _TextSelectionPopupMenu extends StatelessWidget {
 
     return Material(
       elevation: 4.0,
-      color: Theme.of(context).canvasColor,
+      // color: Theme.of(context).canvasColor,
       borderRadius: BorderRadius.circular(8),
       child: Theme(
         data: ThemeData(buttonTheme: ButtonThemeData(minWidth: 0)),
-        child: Container(
-          height: _kPopupMenuHeight,
-          padding: EdgeInsets.symmetric(horizontal: _kButtonPadding),
-          child: Row(mainAxisSize: MainAxisSize.min, children: items),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          child: BackdropFilter(
+            filter: ui.ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+            child: Container(
+              height: _kPopupMenuHeight,
+              decoration: BoxDecoration(
+                // color: Color.fromARGB(24, 255, 255, 255),
+                // color: Color(0x494A4A4A),
+                // color: theme.appColors.blackColor.withOpacity(1),
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.1),
+                    spreadRadius: 2,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+              ),
+              padding: EdgeInsets.symmetric(horizontal: _kButtonPadding),
+              child: Row(mainAxisSize: MainAxisSize.min, children: items),
+            ),
+          ),
         ),
       ),
     );

@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import '../common.dart';
@@ -410,7 +411,7 @@ class _CupertinoTextSelectionControls extends SelectionControls {
           );
 
       items.add(CupertinoButton(
-        color: iosPopupMenuBackgroundColor ?? _kPopupMenuBackgroundColor,
+        // color: iosPopupMenuBackgroundColor ?? _kPopupMenuBackgroundColor,
         minSize: _kPopupMenuHeight,
         padding: _kPopupMenuButtonPadding.add(arrowPadding),
         borderRadius: null,
@@ -443,10 +444,17 @@ class _CupertinoTextSelectionControls extends SelectionControls {
       isArrowPointingDown: isArrowPointingDown,
       child: items.isEmpty
           ? null
-          : DecoratedBox(
-              decoration: BoxDecoration(
-                  color: iosPopupMenuDividerColor ?? _kPopupMenuDividerColor),
-              child: Row(mainAxisSize: MainAxisSize.min, children: items),
+          : ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
+              child: BackdropFilter(
+                filter: ui.ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(mainAxisSize: MainAxisSize.min, children: items),
+                ),
+              ),
             ),
     );
   }
