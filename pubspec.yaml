@@ -11,7 +11,7 @@ dependencies:
   characters: ^1.2.0
   collection: ^1.16.0
   equatable: ^2.0.5
-  float_column: ^2.0.0
+  float_column: ^2.1.8
   flutter:
     sdk: flutter
   url_launcher: ^6.1.7
