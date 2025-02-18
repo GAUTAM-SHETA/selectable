@@ -381,8 +381,9 @@ class _CupertinoTextSelectionControls extends SelectionControls {
     );
 
     final List<Widget> items = <Widget>[];
-    final Widget onePhysicalPixelVerticalDivider =
-        SizedBox(width: 1.0 / MediaQuery.of(context).devicePixelRatio);
+    final Widget onePhysicalPixelVerticalDivider = Container(
+        color: iosPopupMenuDividerColor ?? _kPopupMenuDividerColor,
+        width: 1.0 / MediaQuery.of(context).devicePixelRatio);
     final EdgeInsets arrowPadding = isArrowPointingDown
         ? EdgeInsets.only(bottom: _kPopupMenuArrowSize.height)
         : EdgeInsets.only(top: _kPopupMenuArrowSize.height);
@@ -411,10 +412,10 @@ class _CupertinoTextSelectionControls extends SelectionControls {
           );
 
       items.add(CupertinoButton(
-        // color: iosPopupMenuBackgroundColor ?? _kPopupMenuBackgroundColor,
+        color: iosPopupMenuBackgroundColor ?? _kPopupMenuBackgroundColor,
         minSize: _kPopupMenuHeight,
         padding: _kPopupMenuButtonPadding.add(arrowPadding),
-        borderRadius: null,
+        borderRadius: BorderRadius.zero,
         pressedOpacity: 0.7,
         onPressed: () => onPressed!(delegate.controller),
         child: icon == null
@@ -438,6 +439,12 @@ class _CupertinoTextSelectionControls extends SelectionControls {
           item.icon, item.title ?? '', item.isEnabled!, item.handler);
     }
 
+    if (items.length > 1) {
+      for (int i = 1; i < items.length; i += 2) {
+        items.insert(i, onePhysicalPixelVerticalDivider);
+      }
+    }
+
     return _CupertinoTextSelectionPopupMenu._(
       barTopY: localBarTopY,
       arrowTipX: arrowTipX,
@@ -450,6 +457,8 @@ class _CupertinoTextSelectionControls extends SelectionControls {
                 filter: ui.ImageFilter.blur(sigmaX: 20, sigmaY: 20),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
+                    color: iosPopupMenuBackgroundColor ??
+                        _kPopupMenuBackgroundColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Row(mainAxisSize: MainAxisSize.min, children: items),

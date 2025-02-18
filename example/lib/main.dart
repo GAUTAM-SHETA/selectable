@@ -135,13 +135,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 scrollController: _scrollController,
                 // selectionColor: Colors.orange.withAlpha(75),
                 // showSelection: _showSelection,
-                iosPopupMenuDividerColor: Colors.red,
-                iosPopupMenuBackgroundColor: Colors.black,
-                iosTextColor: Colors.black,
+                iosPopupMenuDividerColor: Colors.white30,
+                iosPopupMenuBackgroundColor: Colors.black38,
+                iosTextColor: Colors.white,
                 popupMenuItems: [
                   SelectableMenuItem(type: SelectableMenuItemType.copy),
                   SelectableMenuItem(
-                    icon: Icons.brush_outlined,
                     title: 'Color Red',
                     isEnabled: (controller) => controller!.isTextSelected,
                     handler: (controller) {
@@ -178,6 +177,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       return true;
                     },
                   ),
+                  SelectableMenuItem(type: SelectableMenuItemType.webSearch),
+                  SelectableMenuItem(type: SelectableMenuItemType.define),
                 ],
                 child: Container(
                   padding: const EdgeInsets.all(20),
