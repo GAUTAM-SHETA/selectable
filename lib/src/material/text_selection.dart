@@ -5,6 +5,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
+import '../common.dart';
 import '../selection_controls.dart';
 
 // ignore_for_file: omit_local_variable_types
@@ -32,6 +33,9 @@ class _TextSelectionPopupMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Widget onePhysicalPixelVerticalDivider = Container(
+        color: iosPopupMenuDividerColor,
+        width: 1.0 / MediaQuery.of(context).devicePixelRatio);
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     //final localizations = MaterialLocalizations.of(context);
     final items = delegate!.menuItems
@@ -53,7 +57,11 @@ class _TextSelectionPopupMenu extends StatelessWidget {
       //     'items.isEmpty.');
       return SizedBox.shrink();
     }
-
+    if (items.length > 1) {
+      for (int i = 1; i < items.length; i += 2) {
+        items.insert(i, onePhysicalPixelVerticalDivider);
+      }
+    }
     return Material(
       elevation: 4.0,
       // color: Theme.of(context).canvasColor,
@@ -67,6 +75,7 @@ class _TextSelectionPopupMenu extends StatelessWidget {
             child: Container(
               height: _kPopupMenuHeight,
               decoration: BoxDecoration(
+                color: iosPopupMenuBackgroundColor,
                 // color: Color.fromARGB(24, 255, 255, 255),
                 // color: Color(0x494A4A4A),
                 // color: theme.appColors.blackColor.withOpacity(1),
