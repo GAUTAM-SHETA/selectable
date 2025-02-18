@@ -119,8 +119,7 @@ class _Button extends StatelessWidget {
 
   Widget get _text => Text(
         icon == null ? title : ' $title',
-        style: popupMenuTextStyle.copyWith(
-            color: isDarkMode! ? Colors.white : Colors.black),
+        style: popupMenuTextStyle.copyWith(color: iosTextColor),
       );
 
   @override
