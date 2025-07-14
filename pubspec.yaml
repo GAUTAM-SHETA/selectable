@@ -8,13 +8,13 @@ environment:
   flutter: '>=1.17.0'
 
 dependencies:
-  characters: ^1.2.0
-  collection: ^1.16.0
-  equatable: ^2.0.5
-  float_column: ^2.1.8
+  characters: ^1.4.0
+  collection: ^1.19.1
+  equatable: ^2.0.7
+  float_column: ^4.0.3
   flutter:
     sdk: flutter
-  url_launcher: ^6.1.7
+  url_launcher: ^6.3.2
 
 dev_dependencies:
   flutter_lints_plus: ^2.0.1
